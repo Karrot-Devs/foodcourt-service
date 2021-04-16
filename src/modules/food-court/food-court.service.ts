@@ -1,9 +1,12 @@
 import { Injectable } from '@nestjs/common';
-import FoodCourt from './entities/foodcourt.entity';
+import FoodCourt from './entities/food-court.entity';
+import { FoodCourtRepository } from '../../core/repositories/food-court.repository';
 
 @Injectable()
 export class FoodCourtService {
+  constructor(private foodCourtRepository: FoodCourtRepository) {}
+
   getAll(): Promise<FoodCourt[]> {
-    return this.productRepository.findAll();
+    return this.foodCourtRepository.findAll();
   }
 }

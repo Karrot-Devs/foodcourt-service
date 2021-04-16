@@ -1,8 +1,8 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 interface OpenCloseTimeRange {
-  openTime: Date,
-  closeTime: Date,
+  openTime: number,
+  closeTime: number,
 }
 
 interface LocationCoordinates {
@@ -26,18 +26,21 @@ export default class FoodCourt {
   @Column()
   name: string;
 
-  @Column()
+  @Column('simple-json')
   openTimeRange: OpenCloseTimeRange;
 
   @Column()
   address: string;
 
-  @Column()
+  @Column('simple-json')
   coordinates: LocationCoordinates;
 
-  @Column()
+  @Column({
+    type: 'simple-enum',
+    enum: FoodCourtType,
+  })
   foodCourtType: FoodCourtType;
 
-  @Column()
+  @Column({ nullable: true })
   coverPhotoUrl: string;
 }
