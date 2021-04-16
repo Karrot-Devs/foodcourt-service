@@ -8,6 +8,6 @@ export class FoodCourtController {
 
   @Get()
   async getAllFoodCourts(): Promise<FoodCourt[]> {
-    return this.foodCourtService.get();
+    return this.foodCourtService.getAll();
   }
 }
