@@ -2,12 +2,22 @@ import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 interface OpenCloseTimeRange {
   openTime: Date,
-  open
+  closeTime: Date,
+}
+
+interface LocationCoordinates {
+  latitude: string;
+  longitude: string;
+}
+
+enum FoodCourtType {
+  CENTRAL,
+  INDEPENDENT,
 }
 
 @Entity()
 export default class FoodCourt {
-  @PrimaryGeneratedColumn("uuid")
+  @PrimaryGeneratedColumn('uuid')
   public id: string;
 
   @Column()
@@ -17,5 +27,17 @@ export default class FoodCourt {
   name: string;
 
   @Column()
-  openTimeRange: string;
+  openTimeRange: OpenCloseTimeRange;
+
+  @Column()
+  address: string;
+
+  @Column()
+  coordinates: LocationCoordinates;
+
+  @Column()
+  foodCourtType: FoodCourtType;
+
+  @Column()
+  coverPhotoUrl: string;
 }
