@@ -1,19 +1,9 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
-
-interface OpenCloseTimeRange {
-  openTime: number,
-  closeTime: number,
-}
-
-interface LocationCoordinates {
-  latitude: string;
-  longitude: string;
-}
-
-enum FoodCourtType {
-  CENTRAL,
-  INDEPENDENT,
-}
+import { FoodCourtType } from '../../../shared/types/food-court.types';
+import {
+  LocationCoordinates,
+  OpenCloseTimeRange,
+} from '../../../shared/types/date-time-location.types';
 
 @Entity()
 export default class FoodCourt {

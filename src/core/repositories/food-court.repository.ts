@@ -1,10 +1,6 @@
 import { EntityRepository, Repository } from 'typeorm';
 import FoodCourt from '../../modules/food-court/entities/food-court.entity';
-
-enum FoodCourtType {
-  CENTRAL,
-  INDEPENDENT,
-}
+import { FoodCourtType } from '../../shared/types/food-court.types';
 
 @EntityRepository(FoodCourt)
 export class FoodCourtRepository extends Repository<FoodCourt> {
